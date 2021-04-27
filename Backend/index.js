@@ -42,7 +42,7 @@ app.get("/", (req, res) => {
 
 
 
-const port = 9595
+const port = process.env.PORT || 8080;
 app.listen(port, () => {
-    console.log("We are listening port 9595");
+    console.log("We are listening port 8080");
 })
