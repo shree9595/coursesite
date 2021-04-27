@@ -16,14 +16,20 @@ const courseRouter = require("./routers/course")
 
 
 //Mongoose connection
-mongoose.connect("mongodb://localhost:27017/Companyproject", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true
 
-}).then(() => {
-    console.log("DB connected");
-})
+mongoose
+    .connect(
+        "mongodb://DotData:D0bj2G1CLll131oi@cluster0-shard-00-00-ruo3z.mongodb.net:27017,cluster0-shard-00-01-ruo3z.mongodb.net:27017,cluster0-shard-00-02-ruo3z.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority",
+        {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            useCreateIndex: true,
+        }
+    )
+    .then(() => {
+        console.log("db connected");
+    });
+
 
 //middlewares
 app.use(bodyParser.json());

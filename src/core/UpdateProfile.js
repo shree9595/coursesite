@@ -146,15 +146,7 @@ const Signup = () => {
                                 value={aboutME}
                             />
                         </div>
-                        <div className="form-group">
-                            <label className="text-light">city</label>
-                            <input
-                                className="form-control"
-                                onChange={handleChange("city")}
-                                type="text"
-                                value={city}
-                            />
-                        </div>
+                       
                         <div className="form-group">
                             <label className="text-light">city</label>
                             <input
