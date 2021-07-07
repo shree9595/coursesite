@@ -81,8 +81,8 @@ const Signup = () => {
                                 className="form-control"
                                 placeholder="User Type"
                             >
-                                <option value={0} >Student</option>
-                                <option value={1} >Faculty</option>
+                                <option value={1} >admin</option>
+                                {/* <option value={1} >Faculty</option> */}
                             </select>
                         </div>
                         <button onClick={onSubmit} className="btn btn-success btn-block">

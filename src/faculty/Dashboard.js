@@ -16,12 +16,12 @@ const DashBoard = () => {
                     <li className="list-group-item">
                         <Link to="/createcourse" className=" nav-link text-success">
                             Create Course
-            </Link>
+                        </Link>
                     </li>
                     <li className="list-group-item">
                         <Link to="/facultyCourse" className="nav-link text-success">
                             My Course
-            </Link>
+                        </Link>
                     </li>
 
 
@@ -51,12 +51,12 @@ const DashBoard = () => {
     };
     return (
         <Base
-            title="Welcome to Faculty area"
-            description="Manage all of your Course here"
+            title="Welcome to  area"
+            description="Manage all of your area here"
             className="container bg-success p-4"
         >
             <div className="row">
-                <div className="col-3">{adminLeftSide()}</div>
+                {/* <div className="col-3">{adminLeftSide()}</div> */}
                 <div className="col-9">{adminRightSide()}</div>
             </div>
         </Base>

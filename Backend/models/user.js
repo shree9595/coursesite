@@ -3,10 +3,7 @@ const crypto = require("crypto");
 const uuidv1 = require("uuid/v1");
 
 
-// var wishlist = new mongoose.Schema({
 
-//   product_wishlist_id: String,
-// })
 
 var userSchema = new mongoose.Schema(
     {
@@ -34,14 +31,11 @@ var userSchema = new mongoose.Schema(
         },
         aboutME: {
             type: String,
-
-
         },
         city: {
             type: String,
-
         },
-        country: {
+        state: {
             type: String,
 
         },
@@ -49,7 +43,7 @@ var userSchema = new mongoose.Schema(
             type: String,
 
         },
-        school: {
+        district: {
             type: String,
 
         },
@@ -66,9 +60,6 @@ var userSchema = new mongoose.Schema(
 
         },
 
-
-
-
         encry_password: {
             type: String,
             required: true
@@ -82,7 +73,15 @@ var userSchema = new mongoose.Schema(
             type: Array,
             default: []
         },
-       
+        pincode: {
+            type: String,
+
+        },
+        fcm: {
+            type: String,
+
+        },
+
     },
     { timestamps: true }
 );
@@ -90,6 +89,8 @@ var userSchema = new mongoose.Schema(
 userSchema
     .virtual("password")
     .set(function (password) {
+        console.log("password", password);
+
         this._password = password;
         this.salt = uuidv1();
         this.encry_password = this.securePassword(password);
@@ -100,6 +101,7 @@ userSchema
 
 userSchema.methods = {
     autheticate: function (plainpassword) {
+       
         return this.securePassword(plainpassword) === this.encry_password;
     },
 
@@ -117,3 +119,4 @@ userSchema.methods = {
 };
 
 module.exports = mongoose.model("User", userSchema);
+

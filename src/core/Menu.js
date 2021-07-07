@@ -20,7 +20,7 @@ const Menu = ({ history }) => (
             </li>
 
 
-
+{/* 
             {isAutheticated() && (
                 <li className="nav-item">
                     <Link
@@ -31,8 +31,8 @@ const Menu = ({ history }) => (
                         Profile
           </Link>
                 </li>
-            )}
-            {isAutheticated() && isAutheticated().user.role === 1 && (
+            )} */}
+            {isAutheticated() && (
                 <li className="nav-item">
                     <Link
                         style={currentTab(history, "/dashboard")}

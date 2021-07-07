@@ -1,6 +1,6 @@
 const express = require("express")
 const { check } = require("express-validator")
-const { signup, signin,signout, isAdmin, isSignedIn, getUser, updateUser, isAuthenticated, pushRegister, getRegister, getUserById } = require("../controllers/user")
+const { signup, signin, signout, isAdmin, isSignedIn, getUser, updateUser, isAuthenticated, pushRegister, getRegister, getUserById, getCity } = require("../controllers/user")
 const router = express.Router()
 
 
@@ -36,10 +36,15 @@ router.get(
     isAuthenticated,
     getRegister
 );
+// router.get(
+//     "/getCity",
+//     getCity
+// );
 
 router.get("/user/:userId", isSignedIn, isAuthenticated, getUser);
-router.get("/signout",signout);
-router.put("/updateuser/:userId", isSignedIn, isAuthenticated, updateUser);
+router.get("/signout", signout);
+
+router.put("/updateuser/:email", updateUser);
 
 
 

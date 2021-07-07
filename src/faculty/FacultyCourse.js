@@ -28,37 +28,37 @@ function FacultyCourse() {
 
     return (
         <Base title="Welcome admin" description="Manage Course here">
-            <h2 className="mb-4">All Course:</h2>
-            <Link className="btn btn-info" to={`/dashboard`}>
-                <span className="">Admin Home</span>
+            <h2 className="mb-4">All Users</h2>
+            <Link className="btn btn-info" to={`/`}>
+                <span className="">Home</span>
             </Link>
             <div className="row">
                 <div className="col-12">
-                    <h2 className="text-center text-white my-3">Total  Course</h2>
+                    <h2 className="text-center text-white my-3">Total User</h2>
 
                     {courses.map((course, index) => {
                         return (
                             <div key="index" className="row text-center mb-2 ">
                                 <div className="col-4">
-                                    <h6 className=" text-left">Course Name:</h6>
+                                    <h6 className=" text-left">Name</h6>
                                     <h3 className=" text-left">{course.name}</h3>
                                 </div>
                                 <div className="col-2">
-                                    <h6 className=" text-left">courseDep:</h6>
+                                    <h6 className=" text-left">Aadhar Number</h6>
                                     <h3 className=" text-left">{course.courseDept}</h3>
                                 </div>
                                 <div className="col-2">
-                                    <h6 className=" text-left">waitlistCapacity:</h6>
-                                    <h3 className=" text-left"> {course.waitlistCapacity}</h3>
+                                    <h6 className=" text-left">Date</h6>
+                                    <h3 className=" text-left"> {course.description}</h3>
                                 </div>
-                                <div className="col-2">
+                                {/* <div className="col-2">
                                     <h6 className=" text-left">courseTeam:</h6>
                                     <h3 className=" text-left">  {course.courseTeam}</h3>
                                 </div>
                                 <div className="col-2">
                                     <h6 className=" text-left">Room:</h6>
                                     <h3 className=" text-left">{course.room}</h3>
-                                </div>
+                                </div> */}
 
                             </div>
                         );

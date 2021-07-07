@@ -14,8 +14,13 @@ exports.signup = (req, res) => {
     }
 
     const user = new User(req.body);
+    const { email } = req.body;
+
     user.save((err, user) => {
         if (err) {
+            // return User.findOne({ email }, (err, user) => {
+            //     res.json({ user: { _id, name, email, role } })
+            // })
             return res.status(400).json({
                 err: "NOT able to save user in DB"
             });
@@ -116,9 +121,10 @@ exports.getUser = (req, res) => {
 };
 
 exports.updateUser = (req, res) => {
-    console.log(req.body);
-    User.findByIdAndUpdate(
-        { _id: req.profile._id },
+    const { email } = req.body;
+    console.log("email", email);
+    User.findOneAndUpdate(
+        { email },
         { $set: req.body },
         { new: true, useFindAndModify: false },
         (err, user) => {
@@ -127,9 +133,9 @@ exports.updateUser = (req, res) => {
                     error: "You are not authorized to update this user"
                 });
             }
-            user.salt = undefined;
-            user.encry_password = undefined;
-            res.json(user);
+            // user.salt = undefined;
+            // user.encry_password = undefined;
+            res.json(user.email);
         }
     );
 };
@@ -182,3 +188,19 @@ exports.pushRegister = (req, res) => {
         }
     );
 };
+
+
+
+// exports.getCity = (req, res) => {
+
+//     User.find({ name: "ram" }, { name:1,_id:0})
+//         // .populate("role")
+//         .exec((err, add) => {
+//             if (err) {
+//                 return res.status(400).json({
+//                     error: "NO address found",
+//                 });
+//             }
+//             res.json(add);
+//         });
+// };
